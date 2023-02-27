@@ -1,0 +1,78 @@
+table {
+  width: 100%;
+}
+
+.container {
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .btn-container {
+    display: flex;
+
+    button {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  }
+
+  .form-container {
+    align-items: normal;
+    display: inline-flex;
+    flex-direction: inherit;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+
+    input {
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+}
+
+#botao {
+  align-self: flex-start;
+}
+
+.mat-mdc-form-field {
+  //--mat-mdc-form-field-floating-label-scale: 0.75;
+  // align-items: center;
+  display: inline-flex;
+  
+  min-width: max-content;
+  text-align: left;
+}
+
+.mat-mdc-form-field-flex {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: fill-available;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  align-items: center;
+}
+.mat-mdc-form-field-infix {
+  min-height: 0px;
+  align-items: center;
+}
+
+/*
+display: inline-flex
+flex-direction: row
+flexwrap: nowrap
+align-content: flex-end
+justify-content: normal
+align-items: normal
+*/

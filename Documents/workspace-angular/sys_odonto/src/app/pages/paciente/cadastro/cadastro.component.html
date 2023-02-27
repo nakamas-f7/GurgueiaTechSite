@@ -1,0 +1,258 @@
+<mat-dialog-content>
+    <form [formGroup]="formCadastroPaciente" (submit)="onSubmit()" class="form">
+        <div formGroupName="paciente">
+            <div formGroupName="pacienteGroup">
+                <h3>Dados do paciente</h3>
+
+                <mat-grid-list cols="4" rowHeight="100px">
+
+                    <mat-grid-tile colspan="3" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Nome</mat-label>
+                            <input matInput type="text" #nome formControlName="nome">
+                            <mat-error
+                                *ngIf="formCadastroPaciente.controls.paciente.controls.pacienteGroup.controls.nome.hasError('required')">
+                                Nome é <strong>obrigatório.</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-label>Sexo</mat-label>
+                        <mat-radio-group aria-label="Select an option" #sexo formControlName="sexo">
+                            <mat-radio-button value="M">Masculino</mat-radio-button>
+                            <mat-radio-button value="F">Feminino</mat-radio-button>
+                        </mat-radio-group>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Data de nascimento</mat-label>
+                            <input matInput [matDatepicker]="dp" #dataNascimento formControlName="dataNascimento">
+                            <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                            <mat-datepicker #dp startView="year" startAt="2000"></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile colspan="1" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>CPF</mat-label>
+                            <input matInput type="number" #cpf formControlName="cpf">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile colspan="1" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>RG</mat-label>
+                            <input matInput type="number" #rg formControlName="rg">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile colspan="1" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Celular</mat-label>
+                            <input matInput type="tel" #celular formControlName="celular">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+
+            <div formGroupName="responsavelGroup">
+                <h3>Dados do responsável</h3>
+                <mat-grid-list cols="4" rowHeight="100px">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Nome</mat-label>
+                            <input matInput type="text" formControlName="nome">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-label>Sexo</mat-label>
+                        <mat-radio-group aria-label="Select an option" formControlName="sexo">
+                            <mat-radio-button value="M">Masculino</mat-radio-button>
+                            <mat-radio-button value="F">Feminino</mat-radio-button>
+                        </mat-radio-group>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Data de nascimento</mat-label>
+                            <input matInput [matDatepicker]="dpresp" formControlName="dataNascimento">
+                            <mat-datepicker-toggle matIconSuffix [for]="dpresp"></mat-datepicker-toggle>
+                            <mat-datepicker #dpresp startView="year" startAt="2000"></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile colspan="1" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>CPF</mat-label>
+                            <input matInput type="number" formControlName="cpf">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile colspan="1" rowspan="1">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Celular</mat-label>
+                            <input matInput type="tel" formControlName="celular">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- <mat-grid-list cols="4" rowHeight="fit"> -->
+                <!-- <mat-grid-tile colspan="4" rowspan="1"> -->
+                <mat-form-field class="txarea" appearance="outline">
+                    <mat-label>Observações</mat-label>
+                    <textarea matInput placeholder="Comentários..." formControlName="obs"></textarea>
+                </mat-form-field>
+                <!-- </mat-grid-tile> -->
+                <!-- </mat-grid-list> -->
+            </div>
+
+            <mat-tab-group animationDuration="500ms" dynamicHeight backgroundColor="primary">
+                <div formGroupName="adicionaisGroup">
+                    <mat-tab>
+                        <ng-template mat-tab-label>Informações Adicionais</ng-template>
+                        <ng-container>
+                            <mat-grid-list cols="4" rowHeight="100px">
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>E-mail</mat-label>
+                                        <input matInput type="email" formControlName="email">
+                                        <mat-error
+                                            *ngIf="formCadastroPaciente.controls.paciente.controls.adicionaisGroup.controls.email.hasError('email')">
+                                            E-mail <strong>inválido.</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Telefone</mat-label>
+                                        <input matInput type="tel" formControlName="telefone">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="3" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Como nos conheceu?</mat-label>
+                                        <mat-select aria-label="Select an option" formControlName="comoConheceu">
+                                            <mat-option *ngFor="let opt of comoConheceuOptions;let i = index"
+                                                [value]="i">{{opt}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="1" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Prontuário</mat-label>
+                                        <input matInput type="text" formControlName="prontuario">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+                            </mat-grid-list>
+                        </ng-container>
+                    </mat-tab>
+                </div>
+                <div formGroupName="planoGroup">
+                    <mat-tab>
+                        <ng-template mat-tab-label>Plano</ng-template>
+                        <ng-container>
+                            <mat-grid-list cols="4" rowHeight="100px">
+
+                                <mat-grid-tile colspan="3" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Plano</mat-label>
+                                        <mat-select aria-label="Select an option" formControlName="plano">
+                                            <mat-option *ngFor="let opt of planoOptions;let i = index"
+                                                [value]="i">{{opt}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="1" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Número carteira</mat-label>
+                                        <input matInput type="text" formControlName="carteira">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="3" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Titular do plano</mat-label>
+                                        <input matInput type="text" formControlName="titular">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="1" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>CPF do titular</mat-label>
+                                        <input matInput type="number" formControlName="cpfTitular">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                            </mat-grid-list>
+                        </ng-container>
+                    </mat-tab>
+                </div>
+                <div formGroupName="enderecoGroup">
+                    <mat-tab>
+                        <ng-template mat-tab-label>Endereço</ng-template>
+                        <ng-container>
+                            <mat-grid-list cols="6" rowHeight="100px">
+
+
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>CEP</mat-label>
+                                        <input matInput type="number" formControlName="cep">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="4" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Rua/Número</mat-label>
+                                        <input matInput type="text" formControlName="rua">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Bairro</mat-label>
+                                        <input matInput type="text" formControlName="bairro">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Cidade</mat-label>
+                                        <input matInput type="text" formControlName="cidade">
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                                <mat-grid-tile colspan="2" rowspan="1">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Estado</mat-label>
+                                        <mat-select aria-label="Select an option" formControlName="estado">
+                                            <mat-option *ngFor="let opt of estadoOptions;let i = index"
+                                                [value]="opt.sigla">{{opt.nome}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-grid-tile>
+
+                            </mat-grid-list>
+                        </ng-container>
+                    </mat-tab>
+                </div>
+            </mat-tab-group>
+        </div>
+        <!-- <button mat-raised-button color="warn" type="submit" [disabled]="!formCadastroPaciente.status">Salvar</button> -->
+    </form>
+
+    {{formCadastroPaciente.value | json}}
+    {{formCadastroPaciente.status}}
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Fechar</button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Salvar</button> -->
+    <button mat-raised-button color="warn" (click)="onSubmit()" [mat-dialog-close]="formCadastroPaciente.value"
+        [disabled]="!formCadastroPaciente.valid">Salvar</button>
+</mat-dialog-actions>

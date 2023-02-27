@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="btn-container">
+        <!-- <button id="botao" mat-raised-button color="warn" routerLink="cadastro">Cadastrar paciente</button> -->
+        <button id="botao" mat-raised-button color="warn" (click)="abrirCadastro()">Cadastrar paciente</button>
+    </div>
+    <div class="form-container">
+        <!-- <mat-form-field appearance="fill" subscriptSizing="dynamic">
+            <mat-label>Buscar...</mat-label>
+            <input [(ngModel)]="term" placeholder="Buscar">
+        </mat-form-field> -->
+
+        <!-- <mat-form-field appearance="fill" subscriptSizing="dynamic">
+            <mat-label>Buscar</mat-label>
+            <input matInput type="search" (keyup)="applyFilter($event)" placeholder="Digite..." #input>
+          </mat-form-field> -->
+    </div>
+</div>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="created" matSortDisableClear
+        matSortDirection="asc">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.paciente.pacienteGroup.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+            <td mat-cell *matCellDef="let element"> {{element.paciente.pacienteGroup.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
+            <td mat-cell *matCellDef="let element"> {{element.paciente.pacienteGroup.celular}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+            <td mat-cell *matCellDef="let element"> {{element.paciente.adicionaisGroup.email}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
+        </tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4" *matCellDef="let element">Nenhum paciente encontrado.{{element}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 5, 15, 20,50]" showFirstLastButtons
+        aria-label="Registros por página:" >
+    </mat-paginator>
+</div>
