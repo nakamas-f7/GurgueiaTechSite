@@ -4,25 +4,19 @@
         Novo modelo de anamnese
     </button>
 </div>
-<mat-card class="example-card" *ngFor="let x of modelos">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>
-            <h3> {{x.titulo}}</h3>
-        </mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-    <mat-card-content>
-        <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-        </p>
-    </mat-card-content>
-    <!-- <mat-divider></mat-divider> -->
-    <mat-card-actions align="end">
-        <button mat-button style="color: RED">EXCLUIR</button>
-        <button mat-button>EDITAR</button>
-    </mat-card-actions>
-</mat-card>
+<div class="card-list">
+    <mat-card class="example-card" *ngFor="let x of modelos; let i = index;">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+                <h3> {{x.titulo}}</h3>
+            </mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        
+        <mat-card-actions align="end">
+            <button mat-button (click)="delete(i)" style="color: RED">EXCLUIR</button>
+            <button mat-button>EDITAR</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -12,6 +12,7 @@ import { ClinicaComponent } from './clinica/clinica.component';
 import { AjustesComponent } from './ajustes.component';
 import { TabsComponent } from './tabs/tabs.component';
 
+
 import { AjustesRoutingModule } from './ajustes-routing.module';
 import { PagesRoutingModule } from '../pages-routing.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,7 +48,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     CategoriasComponent,
     ClinicaComponent,
     AjustesComponent,
-    TabsComponent
+    TabsComponent,
+    ModeloComponent,
+    NovaperguntaComponent
   ]
 })
 export class AjustesModule { }

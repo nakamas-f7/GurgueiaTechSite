@@ -135,8 +135,8 @@ export class PacienteComponent implements AfterViewInit, OnInit {
       (result) => {
         // this.paciente = new Paciente();
         // this.paciente = result;
-        console.log(result)
         if (result) {
+          console.log(result)
           this.service.listaPacientes.push(
             result
           )

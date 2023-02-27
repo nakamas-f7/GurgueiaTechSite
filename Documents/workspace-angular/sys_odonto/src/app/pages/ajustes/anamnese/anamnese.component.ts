@@ -15,7 +15,7 @@ export class AnamneseComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  public modelos: any;
+  public modelos: any[] = [];
 
   ngOnInit() {
     this.modelos = this.service.modelos;
@@ -31,8 +31,8 @@ export class AnamneseComponent implements OnInit {
       (result) => {
         // this.paciente = new Paciente();
         // this.paciente = result;
-        console.log(result)
         if (result) {
+          console.log(result)
           this.service.modelos.push(
             result
           )
@@ -41,5 +41,9 @@ export class AnamneseComponent implements OnInit {
         // this.dataSource.data = this.service.listaPacientes;
 
       });
+  }
+
+  delete(x: number){
+    this.modelos.splice(x,1);
   }
 }

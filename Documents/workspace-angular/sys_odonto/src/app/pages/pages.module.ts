@@ -32,6 +32,9 @@ import { VendasComponent } from './vendas/vendas.component';
 import { ComunicacaoComponent } from './comunicacao/comunicacao.component'
 import { CadastroComponent } from './paciente/cadastro/cadastro.component';
 import { BuscaComponent } from './paciente/busca/busca.component';
+import { AnamneseComponent } from './ajustes/anamnese/anamnese.component';
+import { ModeloComponent } from './ajustes/anamnese/modelo/modelo.component';
+import { NovaperguntaComponent } from './ajustes/anamnese/modelo/novapergunta/novapergunta.component';
 
 
 
@@ -80,7 +83,10 @@ import { BuscaComponent } from './paciente/busca/busca.component';
     VendasComponent,
     ComunicacaoComponent,
     CadastroComponent,
-    BuscaComponent
+    BuscaComponent,
+    AnamneseComponent,
+    ModeloComponent,
+    NovaperguntaComponent
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'auto' } }
