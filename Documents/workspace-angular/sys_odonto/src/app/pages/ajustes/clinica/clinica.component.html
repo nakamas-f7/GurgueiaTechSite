@@ -1,1 +1,120 @@
 <p>clinica works!</p>
+
+<div class="tit-perguntas">
+    <h3> Perguntas para o modelo de anamnese </h3>
+    <button mat-icon-button>
+        <mat-icon class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">
+            add
+        </mat-icon>
+    </button>
+</div>
+
+<div cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListLockAxis="y">
+    <div id="item" *ngFor="let p of perguntas;let i = index" cdkDrag class="list-item">
+
+        <mat-icon class="layout-margin-right" style="cursor: move;">
+            view_headline
+        </mat-icon>
+
+        <div class="parte2">
+            <div class="pergunta-box">
+                <h3>{{p.texto}}</h3>
+                <div class="sub-pergunta">
+                    <div class="alerta">
+                        Alerta
+                    </div>
+                    <h4 class="tipo-pergunta">- {{p.tipo}}</h4>
+                </div>
+            </div>
+
+            <div class="ativa">
+                <mat-slide-toggle color="primary" checked="true">Pergunta
+                    ativa</mat-slide-toggle>
+                <span>Disponível na ficha do paciente</span>
+            </div>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    Editar
+                </button>
+            </mat-menu>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- <div cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListLockAxis="y">
+    <div *ngFor="let p of perguntas;let i = index" cdkDrag
+        class="cdk-drag list-item hover ng-untouched ng-pristine ng-valid ng-star-inserted"
+        style="flex-direction: row; box-sizing: border-box; display: flex;">
+        <mat-icon cdkDragHandle
+            class="mat-icon notranslate cdk-drag-handle mat-tooltip-trigger layout-margin-right mat-icon-no-color"
+            aria-hidden="true"
+            style="touch-action: none; -webkit-user-drag: none; -webkit-tap-highlight-color: transparent; user-select: none; cursor: move;">
+            view_headline
+        </mat-icon>
+        <div style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center space-between; align-items: center; flex: 3 3 calc(15em + 20px); min-width: calc(15em + 20px);"
+            class="ng-untouched ng-pristine ng-valid">
+            <div
+                style="flex-direction: column; box-sizing: border-box; display: flex; flex: 3 3 calc(15em + 20px); min-width: calc(15em + 20px);">
+                <h3 style="margin-bottom: 4px;"> {{p.texto}} </h3>
+                <div style="flex-direction: row; box-sizing: border-box; display: flex;">
+                    <div class="mat-tooltip-trigger mat-subheading-1 grey no-margin" style="margin-right: 4px;">
+                        {{p.comAlerta}}
+                    </div>
+                    <h4 class="mat-subheading-1 grey no-margin"> - {{p.tipo}} </h4>
+                </div>
+            </div>
+            <div style="flex-direction: column; box-sizing: border-box; display: flex; flex: 1 1 0%;">
+                <mat-slide-toggle [checked]="x" (change)="marcado(p)" color="primary"
+                    class="mat-slide-toggle mat-primary mat-checked ng-untouched ng-pristine ng-valid" id="tg{{p.id}}">
+                    <label class="mat-slide-toggle-label" for="mat-slide-toggle-{{p.id}}-input">
+                        <span class="mat-slide-toggle-bar">
+                            <input #cb type="checkbox" role="switch" class="mat-slide-toggle-input cdk-visually-hidden"
+                                id="mat-slide-toggle-{{p.id}}-input" tabindex="0" aria-checked="true">
+                            <span class="mat-slide-toggle-thumb-container">
+                                <span class="mat-slide-toggle-thumb"></span>
+                                <span mat-ripple="" class="mat-ripple mat-slide-toggle-ripple mat-focus-indicator">
+                                    <span class="mat-ripple-element mat-slide-toggle-persistent-ripple"></span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mat-slide-toggle-content">
+                            <span style="display: none;">&nbsp;</span>
+                            Pergunta ativa -
+                        </span>
+                    </label>
+                </mat-slide-toggle>
+                <ng-container *ngFor="let m of marcados">
+                    <div *ngIf="m.id == p.id; then disponivel; else indisp"></div>
+                    <ng-template #disponivel><span>Disponível na ficha do paciente</span></ng-template>
+                    <ng-template #indisp><span>Indisponível na ficha do paciente</span></ng-template>
+                </ng-container>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="menu"
+                class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base">
+                <span class="mat-button-wrapper">
+                    <mat-icon class="mat-icon notranslate mat-icon-no-color" aria-hidden="true">more_vert
+                    </mat-icon>
+                </span>
+                <span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                <span class="mat-button-focus-overlay"></span>
+            </button>
+            <mat-menu #menu="matMenu" class="ng-tns-c148-4 ng-star-inserted">
+                <button mat-menu-item>
+                    Editar
+                </button>
+            </mat-menu>
+        </div>
+        <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal">
+        </mat-divider>
+    </div>
+</div> -->
+
+{{perguntas | json}}

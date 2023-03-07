@@ -1,10 +1,84 @@
-<mat-dialog-content>    
-    <p>modelo works!</p>
+<mat-dialog-content>
+    <form [formGroup]="formCadastroModelo" (submit)="onSubmit()" class="form">
+        <div class="cab">
+            <h2>Modelo de anamnese</h2>
+            <!-- <mat-form-field id="buscar" class="example-full-width" appearance="outline">
+                <mat-label>Buscar pergunta</mat-label>
+                <input matInput type="text" formControlName="buscar">
+            </mat-form-field> -->
+        </div>
+
+        <!-- <mat-grid-list cols="4" rowHeight="100px">
+
+            <mat-grid-tile colspan="2" rowspan="1"> -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" #nome formControlName="nome">
+            <mat-error *ngIf="formCadastroModelo.controls.nome.hasError('required')">
+                Nome é <strong>obrigatório.</strong>
+            </mat-error>
+        </mat-form-field>
+        <!-- </mat-grid-tile>
+        </mat-grid-list> -->
+        <div class="perg">
+            <div class="div-add-pergunta">
+                <h3>Perguntas do modelo</h3>
+                <button mat-icon-button aria-label="Adicionar nova pergunta">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+
+            <div class="example-list">
+            <mat-list cdkDropList  (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let p of perguntas" cdkDrag>
+                    <mat-grid-list cols="20">
+
+                        <mat-grid-tile class="icone" cdkDragHandle colspan="1">
+                            <mat-icon matListItemIcon>view_headline</mat-icon>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="13">
+                            <mat-list-item>
+                                <h3 matListItemTitle>{{p.texto}}</h3>
+                                <span matListItemLine>[Colocar Alerta] - {{p.tipo}}</span>
+                            </mat-list-item>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="5">
+                            <mat-list-item>
+                                <mat-slide-toggle matListItemTitle color="primary" checked="true">Pergunta
+                                    ativa</mat-slide-toggle>
+                                <span matListItemLine style="font-size: 11px;">Disponível na ficha do paciente</span>
+                            </mat-list-item>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile style="text-align: center;" colspan="1">
+                            <mat-list-item>
+                                <button mat-icon-button [matMenuTriggerFor]="menu"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu">
+                                    <button mat-menu-item style="padding-left: 16px;">
+                                        Editar
+                                    </button>
+                                </mat-menu>
+                            </mat-list-item>
+
+                        </mat-grid-tile>
+
+                    </mat-grid-list>
+                </div>
+            </mat-list>
+        </div>
+        </div>
+    </form>
     {{perguntas | json}}
-    
+
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button mat-dialog-close>Fechar</button>
     <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Salvar</button> -->
     <button mat-raised-button color="warn">Salvar</button>
 </mat-dialog-actions>

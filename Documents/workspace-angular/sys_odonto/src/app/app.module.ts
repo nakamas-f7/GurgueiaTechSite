@@ -10,21 +10,23 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { FilterPipe } from './util/filter.pipe';
 
+
 @NgModule({
-  declarations: [  
+  declarations: [
     AppComponent,
     FilterPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    
-    AppRoutingModule,   
-    AjustesRoutingModule, 
-    PagesRoutingModule,       
 
-    PagesModule,    
-    AjustesModule
+    AppRoutingModule,
+    AjustesRoutingModule,
+    PagesRoutingModule,
+
+    PagesModule,
+    AjustesModule, 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

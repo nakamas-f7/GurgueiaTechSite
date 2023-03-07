@@ -18,12 +18,12 @@ export class AnamneseComponent implements OnInit {
   public modelos: any[] = [];
 
   ngOnInit() {
-    this.modelos = this.service.modelos;
+    this.modelos = this.service.modelosAnamnese;
   }
 
   novoModelo() {
     const dialogRef = this.dialog.open(ModeloComponent, {
-      width: '880px',
+      width: '1000px',
       // data: {nome: 'Fulano', idade: 22} //para editar
     });
 
@@ -33,7 +33,7 @@ export class AnamneseComponent implements OnInit {
         // this.paciente = result;
         if (result) {
           console.log(result)
-          this.service.modelos.push(
+          this.service.modelosAnamnese.push(
             result
           )
         }
