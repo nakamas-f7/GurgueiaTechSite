@@ -18,27 +18,21 @@
     <div class="page">
       
       <div id="home">
-        <!-- Menu-->
-          <?php include_once './componentes/menu.php'; ?>
-        <!-- Noticias-->
-          <?php include_once './componentes/noticias.php'; ?>
+          <?php 
+            include_once './componentes/menu.php';    
+            include_once './componentes/noticias.php';
+          ?>
+        
       </div>
-      <!-- services-->
-          <?php include_once './componentes/services.php'; ?>
-      <!-- projetos-->
-          <?php include_once './componentes/projetos.php'; ?>
-      <!-- team-->
-          <?php include_once './componentes/team.php'; ?>
-      <!-- marketing-->
-          <?php include_once './componentes/marketing.php'; ?>
-      <!-- Valores -->
-          <?php include_once './componentes/valores.php'; ?>
-      <!-- Eventos -->
-          <?php include_once './componentes/eventos.php'; ?>
-      <!-- Contato -->
-          <?php include_once './componentes/contato.php'; ?>
-      <!-- Footer-->
-          <?php include_once './componentes/footer.php'; ?>
+          <?php 
+            include_once './componentes/services.php';
+            include_once './componentes/eventos.php';
+            include_once './componentes/projetos.php';
+            include_once './componentes/team.php';
+            include_once './componentes/marketing.php';
+            include_once './componentes/contato.php';
+            include_once './componentes/footer.php';
+          ?>
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
